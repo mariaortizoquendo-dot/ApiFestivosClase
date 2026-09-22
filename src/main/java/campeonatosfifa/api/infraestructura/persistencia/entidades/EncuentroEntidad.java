@@ -45,7 +45,7 @@ public class EncuentroEntidad {
 
     @ManyToOne
     @JoinColumn(name = "idestadio", referencedColumnName = "id", nullable = false)
-    private Estadio estadio;
+    private EstadioEntidad estadio;
 
     @Column(name = "fecha")
     private LocalDate fecha;
@@ -71,7 +71,7 @@ public class EncuentroEntidad {
             SeleccionEntidad seleccion2,
             FaseEntidad fase,
             CampeonatoEntidad campeonato,
-            Estadio estadio,
+            EstadioEntidad estadio,
             LocalDate fecha,
             int goles1,
             int goles2,
@@ -99,43 +99,43 @@ public class EncuentroEntidad {
         this.id = id;
     }
 
-    public SeleccionEntidad getSeleccionEntidad1() {
+    public SeleccionEntidad getSeleccion1() {
         return seleccion1;
     }
 
-    public void setSeleccionEntidad1(SeleccionEntidad seleccion1) {
+    public void setSeleccion1(SeleccionEntidad seleccion1) {
         this.seleccion1 = seleccion1;
     }
 
-    public SeleccionEntidad getSeleccionEntidad2() {
+    public SeleccionEntidad getSeleccion2() {
         return seleccion2;
     }
 
-    public void setSeleccionEntidad2(SeleccionEntidad seleccion2) {
+    public void setSeleccion2(SeleccionEntidad seleccion2) {
         this.seleccion2 = seleccion2;
     }
 
-    public FaseEntidad getFaseEntidad() {
+    public FaseEntidad getFase() {
         return fase;
     }
 
-    public void setFaseEntidad(FaseEntidad fase) {
+    public void setFase(FaseEntidad fase) {
         this.fase = fase;
     }
 
-    public CampeonatoEntidad getCampeonatoEntidad() {
+    public CampeonatoEntidad getCampeonato() {
         return campeonato;
     }
 
-    public void setCampeonatoEntidad(CampeonatoEntidad campeonato) {
+    public void setCampeonato(CampeonatoEntidad campeonato) {
         this.campeonato = campeonato;
     }
 
-    public Estadio getEstadio() {
+    public EstadioEntidad getEstadio() {
         return estadio;
     }
 
-    public void setEstadio(Estadio estadio) {
+    public void setEstadio(EstadioEntidad estadio) {
         this.estadio = estadio;
     }
 

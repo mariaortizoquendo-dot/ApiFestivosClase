@@ -14,6 +14,10 @@ public class GrupoSeleccion {
         this.grupo = grupo;
     }
 
+    public GrupoSeleccion(Grupo haciaDominio, Seleccion haciaDominio2) {
+        //TODO Auto-generated constructor stub
+    }
+
     public Seleccion getSeleccion() {
         return seleccion;
     }

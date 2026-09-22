@@ -13,8 +13,11 @@ import campeonatosfifa.api.infraestructura.persistencia.repositorios.jpa.IGrupoS
 
 public class GrupoSeleccionRepositorio implements IGrupoSeleccionRepositorio {
 
-    @Autowired 
-    private IGrupoSeleccionRepositorioJpa JpaRepository;
+    private final IGrupoSeleccionRepositorioJpa repositorio;
+
+    GrupoSeleccionRepositorio(IGrupoSeleccionRepositorioJpa repositorio) {
+        this.repositorio = repositorio;
+    }
 
     @Override
     public List<GrupoSeleccion> listarSelecciones(int idGrupo) {

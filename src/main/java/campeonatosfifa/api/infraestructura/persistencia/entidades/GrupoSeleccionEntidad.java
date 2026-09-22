@@ -3,18 +3,20 @@ package campeonatosfifa.api.infraestructura.persistencia.entidades;
 import campeonatosfifa.api.dominio.entidades.Seleccion;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.IdClass;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "grupopais")
+@IdClass(GrupoSeleccionId.class)
 public class GrupoSeleccionEntidad {
 
     @Id
     @JoinColumn(name = "idpais", referencedColumnName = "id")
     @ManyToOne
-    private Seleccion seleccion;
+    private SeleccionEntidad seleccion;
 
     @Id
     @JoinColumn(name = "idgrupo", referencedColumnName = "id")
@@ -24,16 +26,16 @@ public class GrupoSeleccionEntidad {
     public GrupoSeleccionEntidad() {
     }
 
-    public GrupoSeleccionEntidad(Seleccion seleccion, GrupoEntidad grupo) {
+    public GrupoSeleccionEntidad(GrupoEntidad grupo, SeleccionEntidad seleccion) {
         this.seleccion = seleccion;
         this.grupo = grupo;
     }
 
-    public Seleccion getSeleccion() {
+    public SeleccionEntidad getSeleccion() {
         return seleccion;
     }
 
-    public void setSeleccion(Seleccion seleccion) {
+    public void setSeleccion(SeleccionEntidad seleccion) {
         this.seleccion = seleccion;
     }
 

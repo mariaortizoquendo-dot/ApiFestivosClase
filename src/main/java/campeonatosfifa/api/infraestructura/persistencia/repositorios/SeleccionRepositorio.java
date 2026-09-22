@@ -2,34 +2,66 @@ package campeonatosfifa.api.infraestructura.persistencia.repositorios;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import campeonatosfifa.api.core.repositorios.ISeleccionRepositorio;
-import campeonatosfifa.api.dominio.entidades.GrupoSeleccion;
+import campeonatosfifa.api.dominio.entidades.Seleccion;
+import campeonatosfifa.api.infraestructura.persistencia.repositorios.jpa.ISeleccionRepositorioJpa;
+import campeonatosfifa.api.infraestructura.persistencia.entidades.SeleccionEntidad;
+import campeonatosfifa.api.infraestructura.persistencia.mapeadores.SeleccionMapeador;
 
-public class SeleccionRepositorio implements ISeleccionRepositorio{
+@Component
+public class SeleccionRepositorio implements ISeleccionRepositorio {
 
-    @Override
-    public List<GrupoSeleccion> listarSelecciones(int idGrupo) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'listarSelecciones'");
+    private final ISeleccionRepositorioJpa repositorio;
+
+    SeleccionRepositorio(ISeleccionRepositorioJpa repositorio) {
+        this.repositorio = repositorio;
     }
 
     @Override
-    public Optional<GrupoSeleccion> obtenerPorId(int idGrupo, int idSeleccion) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'obtenerPorId'");
+    public List<Seleccion> listar() {
+        return repositorio.findAll()
+                .stream()
+                .map(SeleccionMapeador::haciaDominio)
+                .collect(Collectors.toList());
     }
 
     @Override
-    public GrupoSeleccion guardar(GrupoSeleccion gruposeleccion) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'guardar'");
+    public Optional<Seleccion> obtenerPorId(int id) {
+       return repositorio.findById(id)
+                .map(SeleccionMapeador::haciaDominio);
     }
 
     @Override
-    public boolean eliminar(int idGrupo, int idSeleccion) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'eliminar'");
+    public List<Seleccion> buscarPorNombre(String nombre) {
+        return repositorio.findByNombreContaining(nombre)
+                .stream()
+                .map(SeleccionMapeador::haciaDominio)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public Seleccion guardar(Seleccion seleccion) {
+        SeleccionEntidad entidad = SeleccionMapeador.haciaEntidad(seleccion);
+        SeleccionEntidad entidadGuardada = repositorio.save(entidad);
+        return SeleccionMapeador.haciaDominio(entidadGuardada);
+    }
+
+    @Override
+    public boolean eliminar(int id) {
+        try {
+            if (repositorio.existsById(id)) {
+                repositorio.deleteById(id);
+                return true;
+            }
+            return false;
+        } catch (Exception ex) {
+            return false;
+        }
     }
 
 }

@@ -3,15 +3,18 @@ package campeonatosfifa.api.core.repositorios;
 import java.util.List;
 import java.util.Optional;
 
-import campeonatosfifa.api.dominio.entidades.GrupoSeleccion;
+import campeonatosfifa.api.dominio.entidades.Seleccion;
 
 public interface ISeleccionRepositorio {
 
-    List<GrupoSeleccion> listarSelecciones(int idGrupo);
+    List<Seleccion> listar();
 
-    Optional<GrupoSeleccion> obtenerPorId(int idGrupo, int idSeleccion);
+    Optional<Seleccion> obtenerPorId(int id);
 
-    GrupoSeleccion guardar(GrupoSeleccion gruposeleccion);
+    List<Seleccion> buscarPorNombre(String nombre);
 
-    boolean eliminar(int idGrupo, int idSeleccion);
+    Seleccion guardar(Seleccion seleccion);
+
+    boolean eliminar(int id);
+
 }
