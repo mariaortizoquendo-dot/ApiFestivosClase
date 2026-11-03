@@ -3,6 +3,7 @@ package campeonatosfifa.api.core.repositorios;
 import java.util.List;
 import java.util.Optional;
 
+import campeonatosfifa.api.dominio.dtos.TablaPosicionesDto;
 import campeonatosfifa.api.dominio.entidades.Grupo;
 
 public interface IGrupoRepositorio {
@@ -14,4 +15,8 @@ public interface IGrupoRepositorio {
     Grupo guardar(Grupo grupo);
 
     boolean eliminar(int id);
+
+    // ***** Tabla de Posiciones *****
+
+    List<TablaPosicionesDto> listarTablaPosiciones(int idGrupo);
 }

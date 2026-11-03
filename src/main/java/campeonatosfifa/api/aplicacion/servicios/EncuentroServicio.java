@@ -2,6 +2,7 @@ package campeonatosfifa.api.aplicacion.servicios;
 
 import java.util.List;
 
+import campeonatosfifa.api.dominio.entidades.Encuentro;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,20 +39,19 @@ public class EncuentroServicio implements IEncuentroServicio {
 
 	@Override
 	public Encuentro agregar(Encuentro encuentro) {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'agregar'");
+		encuentro.setId(0);
+		return repositorio.guardar(encuentro);
 	}
 
 	@Override
 	public Encuentro modificar(Encuentro encuentro) {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'modificar'");
+		var encuentroEncontrada = repositorio.obtenerPorId(encuentro.getId());
+		return encuentroEncontrada.isEmpty() ? null : repositorio.guardar(encuentro);
 	}
 
 	@Override
 	public boolean eliminar(int id) {
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'eliminar'");
+		return repositorio.eliminar(id);
 	}
 
 }
