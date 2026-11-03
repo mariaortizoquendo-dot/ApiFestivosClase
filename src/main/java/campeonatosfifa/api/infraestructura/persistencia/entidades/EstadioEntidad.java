@@ -60,11 +60,11 @@ public class EstadioEntidad {
         this.nombre = nombre;
     }
 
-    public CiudadEntidad getCiudadEntidad() {
+    public CiudadEntidad getCiudad() {
         return ciudad;
     }
 
-    public void setCiudadEntidad(CiudadEntidad ciudad) {
+    public void setCiudad(CiudadEntidad ciudad) {
         this.ciudad = ciudad;
     }
 

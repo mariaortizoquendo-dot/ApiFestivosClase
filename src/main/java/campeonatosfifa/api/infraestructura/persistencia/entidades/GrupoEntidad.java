@@ -56,11 +56,11 @@ public class GrupoEntidad {
         this.nombre = nombre;
     }
 
-    public CampeonatoEntidad getCampeonatoEntidad() {
+    public CampeonatoEntidad getCampeonato() {
         return campeonato;
     }
 
-    public void setCampeonatoEntidad(CampeonatoEntidad campeonato) {
+    public void setCampeonato(CampeonatoEntidad campeonato) {
         this.campeonato = campeonato;
     }
 }

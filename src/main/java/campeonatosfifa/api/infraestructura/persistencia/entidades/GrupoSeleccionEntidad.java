@@ -1,6 +1,5 @@
 package campeonatosfifa.api.infraestructura.persistencia.entidades;
 
-import campeonatosfifa.api.dominio.entidades.Seleccion;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.IdClass;

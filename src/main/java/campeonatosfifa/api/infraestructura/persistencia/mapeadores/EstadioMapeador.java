@@ -10,7 +10,7 @@ public class EstadioMapeador {
 
         return new Estadio(entidad.getId(),
                 entidad.getNombre(),
-                CiudadMapeador.haciaDominio(entidad.getCiudadEntidad()),
+                CiudadMapeador.haciaDominio(entidad.getCiudad()),
                 entidad.getCapacidad()
             );
 

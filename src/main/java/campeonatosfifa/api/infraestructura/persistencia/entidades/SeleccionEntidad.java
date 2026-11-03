@@ -12,13 +12,13 @@ import jakarta.persistence.Table;
 @Table(name = "pais")
 public class SeleccionEntidad {
 
-    @Column(name="id")
+    @Column(name = "id")
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator="secuencia_pais")
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "secuencia_pais")
     @SequenceGenerator(name = "secuencia_pais", sequenceName = "secuencia_pais", allocationSize = 1)
     private int id;
 
-    @Column(name="pais", length = 50, unique = true, nullable = false)
+    @Column(name = "pais", length = 50, unique = true, nullable = false)
     private String nombre;
 
     @Column(name = "entidad", length = 100, nullable = false)

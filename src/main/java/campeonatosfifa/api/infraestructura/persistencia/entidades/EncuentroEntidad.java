@@ -2,7 +2,6 @@ package campeonatosfifa.api.infraestructura.persistencia.entidades;
 
 import java.time.LocalDate;
 
-import campeonatosfifa.api.dominio.entidades.Estadio;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

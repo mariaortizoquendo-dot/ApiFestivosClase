@@ -10,14 +10,19 @@ import org.springframework.stereotype.Component;
 import campeonatosfifa.api.core.repositorios.ISeleccionRepositorio;
 import campeonatosfifa.api.dominio.entidades.Seleccion;
 import campeonatosfifa.api.infraestructura.persistencia.repositorios.jpa.ISeleccionRepositorioJpa;
+import campeonatosfifa.api.infraestructura.persistencia.entidades.CampeonatoEntidad;
 import campeonatosfifa.api.infraestructura.persistencia.entidades.SeleccionEntidad;
+import campeonatosfifa.api.infraestructura.persistencia.mapeadores.CampeonatoMapeador;
 import campeonatosfifa.api.infraestructura.persistencia.mapeadores.SeleccionMapeador;
 
 @Component
 public class SeleccionRepositorio implements ISeleccionRepositorio {
 
-    @Autowired
-    private  ISeleccionRepositorioJpa repositorio;
+    private final ISeleccionRepositorioJpa repositorio;
+
+    SeleccionRepositorio(ISeleccionRepositorioJpa repositorio) {
+        this.repositorio = repositorio;
+    }
 
     @Override
     public List<Seleccion> listar() {

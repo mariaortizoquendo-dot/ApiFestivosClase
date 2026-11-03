@@ -5,19 +5,22 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import campeonatosfifa.api.core.repositorios.IEncuentroRepositorio;
 import campeonatosfifa.api.dominio.entidades.Encuentro;
 import campeonatosfifa.api.infraestructura.persistencia.entidades.EncuentroEntidad;
 import campeonatosfifa.api.infraestructura.persistencia.mapeadores.EncuentroMapeador;
 import campeonatosfifa.api.infraestructura.persistencia.repositorios.jpa.IEncuentroRepositorioJpa;
+import org.springframework.stereotype.Component;
 
 @Component
 public class EncuentroRepositorio implements IEncuentroRepositorio {
 
-    @Autowired
-    private IEncuentroRepositorioJpa repositorio;
+    private final IEncuentroRepositorioJpa repositorio;
+
+    EncuentroRepositorio(IEncuentroRepositorioJpa repositorio) {
+        this.repositorio = repositorio;
+    }
 
     @Override
     public List<Encuentro> listarPorCampeonato(int idCampeonato) {

@@ -31,4 +31,8 @@ public interface ICampeonatoServicio {
     CampeonatoPais modificarPais(CampeonatoPais campeonatoPais);
 
     boolean eliminarPais(int idCampeonato, int idPais);
+
+    Object agregarPais(int idCampeonato, int idPais);
+
+    Object modificarPais(int idCampeonato, int idPaisActual, int idPaisNueva);
 }

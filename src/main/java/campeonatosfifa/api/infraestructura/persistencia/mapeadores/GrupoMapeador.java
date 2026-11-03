@@ -10,7 +10,7 @@ public class GrupoMapeador {
 
         return new Grupo(entidad.getId(),
                 entidad.getNombre(),
-                CampeonatoMapeador.haciaDominio(entidad.getCampeonatoEntidad()));
+                CampeonatoMapeador.haciaDominio(entidad.getCampeonato()));
 
     }
 
