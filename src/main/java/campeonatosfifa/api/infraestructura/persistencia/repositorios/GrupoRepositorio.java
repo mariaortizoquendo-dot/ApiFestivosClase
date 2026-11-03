@@ -11,9 +11,12 @@ import campeonatosfifa.api.dominio.entidades.Grupo;
 import campeonatosfifa.api.infraestructura.persistencia.entidades.GrupoEntidad;
 import campeonatosfifa.api.infraestructura.persistencia.mapeadores.GrupoMapeador;
 import campeonatosfifa.api.infraestructura.persistencia.repositorios.jpa.IGrupoRepositorioJpa;
+import org.springframework.stereotype.Component;
 
+@Component
 public class GrupoRepositorio implements IGrupoRepositorio {
 
+    @Autowired
     private final IGrupoRepositorioJpa repositorio;
 
     GrupoRepositorio(IGrupoRepositorioJpa repositorio) {

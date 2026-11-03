@@ -7,7 +7,7 @@ import campeonatosfifa.api.dominio.entidades.Campeonato;
 import campeonatosfifa.api.dominio.entidades.CampeonatoPais;
 
 public interface ICampeonatoServicio {
-    
+
     List<Campeonato> listar();
 
     Campeonato obtener(int id);
@@ -19,6 +19,8 @@ public interface ICampeonatoServicio {
     Campeonato modificar(Campeonato Campeonato);
 
     boolean eliminar(int id);
+
+    // ***** Paises del Campeonato *****
 
     List<CampeonatoPais> listarPaises(int idCampeonato);
 

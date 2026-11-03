@@ -16,11 +16,8 @@ import campeonatosfifa.api.infraestructura.persistencia.mapeadores.SeleccionMape
 @Component
 public class SeleccionRepositorio implements ISeleccionRepositorio {
 
-    private final ISeleccionRepositorioJpa repositorio;
-
-    SeleccionRepositorio(ISeleccionRepositorioJpa repositorio) {
-        this.repositorio = repositorio;
-    }
+    @Autowired
+    private  ISeleccionRepositorioJpa repositorio;
 
     @Override
     public List<Seleccion> listar() {

@@ -9,9 +9,13 @@ import campeonatosfifa.api.dominio.entidades.Campeonato;
 import campeonatosfifa.api.infraestructura.persistencia.entidades.CampeonatoEntidad;
 import campeonatosfifa.api.infraestructura.persistencia.mapeadores.CampeonatoMapeador;
 import campeonatosfifa.api.infraestructura.persistencia.repositorios.jpa.ICampeonatoRepositorioJpa;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class CampeonatoRepositorio implements ICampeonatoRepositorio {
 
+    @Autowired
     private ICampeonatoRepositorioJpa repositorio;
 
     @Override

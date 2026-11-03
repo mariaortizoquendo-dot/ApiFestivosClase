@@ -12,11 +12,8 @@ import campeonatosfifa.api.dominio.entidades.Seleccion;
 @Service
 public class SeleccionServicio implements ISeleccionServicio {
 
-	private final ISeleccionRepositorio repositorio;
-
-	SeleccionServicio(ISeleccionRepositorio repositorio) {
-		this.repositorio = repositorio;
-	}
+	@Autowired
+	private ISeleccionRepositorio repositorio;
 
 	@Override
 	public List<Seleccion> listar() {

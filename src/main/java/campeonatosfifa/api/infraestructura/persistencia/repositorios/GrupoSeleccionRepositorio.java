@@ -10,14 +10,13 @@ import campeonatosfifa.api.core.repositorios.IGrupoSeleccionRepositorio;
 import campeonatosfifa.api.dominio.entidades.GrupoSeleccion;
 import campeonatosfifa.api.infraestructura.persistencia.mapeadores.GrupoSeleccionMapeador;
 import campeonatosfifa.api.infraestructura.persistencia.repositorios.jpa.IGrupoSeleccionRepositorioJpa;
+import org.springframework.stereotype.Component;
 
+@Component
 public class GrupoSeleccionRepositorio implements IGrupoSeleccionRepositorio {
 
-    private final IGrupoSeleccionRepositorioJpa repositorio;
-
-    GrupoSeleccionRepositorio(IGrupoSeleccionRepositorioJpa repositorio) {
-        this.repositorio = repositorio;
-    }
+    @Autowired
+    private IGrupoSeleccionRepositorioJpa repositorio;
 
     @Override
     public List<GrupoSeleccion> listarSelecciones(int idGrupo) {
